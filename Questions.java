@@ -19,8 +19,17 @@ import javax.persistence.*;
 public class Questions implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(nullable = false)
     private int question_ID;
+    
+    @Basic(optional = false)
+    @Column(nullable = false) 
     private String question;
+    
+    @Basic(optional = false)
+    @Column(nullable = false) 
     private String created_at;
     
     public void setQuestion_ID(int question_ID) {
