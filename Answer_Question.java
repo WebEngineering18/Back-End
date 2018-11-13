@@ -54,4 +54,9 @@ public class Answer_Question implements Serializable {
     public Answers getAnswer_fk() {
         return this.answer_fk;
     }
+    
+    @Override
+    public String toString() {
+        return "Answer_Question[id = " + answer_question_ID + " ]";
+    }
 }

@@ -54,4 +54,9 @@ public class Answers implements Serializable {
         return this.created_at;
     }
     
+    @Override
+    public String toString() {
+        return "Answers[id = " + answers_ID + " ]";
+    }
+    
 }
