@@ -1,0 +1,48 @@
+      html, body {
+                font-family: verdana;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+                display: table;
+            }
+            .overall {
+                width: 50%;
+                margin: 0 auto; 
+                background-color: #f2f2f2;
+                overflow: auto;
+            }
+            @media screen and (max-width:1024px) { 
+                .overall {
+                    width: 100% !important;
+                }
+            }
+			
+		div.percbar {
+			width: 30%; 
+			position: relative;
+			float:right;
+		}
+		
+		div.percentage{
+			font-size: 12px;
+			position: absolute;
+			top: 0;
+			left: 40%;
+			color: black;
+		}
+		
+		span.weiter{
+			float:right;
+			padding-top: 10px;
+		}
+		
+		span.zuruck{
+			float:left;
+			padding-top: 10px;
+		}
+		
+		textarea.textarea{
+			margin-left: 22px;
+			
+			
+		}
