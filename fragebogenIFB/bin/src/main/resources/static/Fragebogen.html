@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>Fragebogen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style\stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="style\uikit.min.css" />
+    <link rel="shortcut icon" href="IFB.jpg" />
+    <script src="js\validate.js"></script>
+    <script src="js\ajaxTest.js"></script>
+    <script src="js\slider.js"></script>
+    <script src="js\uikit.min.js"></script>
+    <script src="js\uikit-icons.min.js"></script>
+
+
+</head>
+
+<body class="uk-background-muted">
+
+    <div class="overall"><br>
+        <div class="uk-container uk-heading-divider">
+            <span class="uk-text-large" id="category">Allgemeines</span>
+            <div class="percbar">
+                <progress id="progress" class="uk-progress" value="0" max="20"></progress>
+                <div class="percentage" id="percentage">0% (0/20)</div>
+            </div>
+        </div>
+
+        <!-- Frage 1 -->
+        <div class="uk-container" id="frage_1">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                1. Fachbereich Ihres Unternehmens
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Hoch- und Massivbau"> Hoch- und
+                    Massivbau<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Fliesen und Naturstein"> Fliesen und
+                    Naturstein<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Betonwerkstein, Fertigteile, Terrazzo und Naturstein">
+                    Betonwerkstein, Fertigteile,
+                    Terrazzo und Naturstein<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Ausbau und Fassade"> Ausbau und
+                    Fassade<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Estrich und Belag"> Estrich und
+                    Belag<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Holzbau"> Holzbau<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Wärme-, Kälte-, Schall- und Brandschutze">
+                    Wärme-, Kälte-, Schall- und Brandschutze<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Ausbau und Trockenbau"> Ausbau und
+                    Trockenbau<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Bauwerksabdichtung">
+                    Bauwerksabdichtung<br></label>
+                <label><input class="uk-checkbox cb1" type="checkbox" value="Fassadenbau"> Fassadenbau<br></label>
+            </div>
+        </div>
+
+        <!-- Frage 2 -->
+        <div class="uk-container" id="frage_2" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                2. Tätig als
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-radio" type="radio" name="radio" checked value="Generalunternehmer">
+                    Generalunternehmer<br></label>
+                <label><input class="uk-radio" type="radio" name="radio" value="Generalübernehmer">
+                    Generalübernehmer<br></label>
+                <label><input class="uk-radio" type="radio" name="radio" value="Bauunternehmer"> Bauunternehmer<br></label>
+                <label><input class="uk-radio" type="radio" name="radio" value="Bauträger"> Bauträger<br></label>
+                <label><input class="uk-radio" type="radio" name="radio" value="Handwerksbetrieb"> Handwerksbetrieb</label>
+
+            </div>
+        </div>
+
+        <!-- Frage 3 -->
+        <div class="uk-container" id="frage_3" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                3. Gesamtanzahl Bauvorhaben / Projekte in den letzten 5 Jahren
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-radio" type="radio" name="radio2" checked value="< 10">
+                    < 10<br>
+                </label>
+                <label><input class="uk-radio" type="radio" name="radio2" value="< 50">
+                    < 50<br>
+                </label>
+                <label><input class="uk-radio" type="radio" name="radio2" value=" < 100">
+                    < 100<br>
+                </label>
+                <label><input class="uk-radio" type="radio" name="radio2" value="> 100"> > 100</label>
+            </div>
+        </div>
+
+        <!-- Frage 4 -->
+        <div class="uk-container" id="frage_4" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                4. Bauvorhaben / Projekte
+            </div>
+            <hr>
+
+            <div class="uk-container">
+                <p>Eigenplanung [%]</p>
+                <div class="uk-align-left">
+                    <input id="range4" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input4" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+            <br>
+            <div class="uk-container">
+                <p>Fremdplanung [%]</p>
+                <div class="uk-align-left">
+                    <input id="range4_2" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input4_2" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+        </div>
+
+        <!-- Frage 5 -->
+        <div class="uk-container" id="frage_5" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                5. Festgestellte Planungsschäden, Anzahl insgesamt
+            </div>
+            <hr>
+
+            <div>
+                <label><input class="uk-radio" type="radio" name="radio5" id="allYearsQ5"> 2013 - 2017</label>
+            </div>
+            <div class="uk-margin-top">
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px; display:none;" id="input5"></label>
+            </div>
+
+            <div class="uk-margin-top">
+                <label><input class="uk-radio" type="radio" name="radio5" id="everyYearQ5"> jedes Jahr einzeln</label><br><br>
+            </div>
+            <div style="display:none;" id="eachYearQ5">
+                <span>2013 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input5_1"></label><br>
+                <span>2014 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input5_2"></label><br>
+                <span>2015 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input5_3"></label><br>
+                <span>2016 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input5_4"></label><br>
+                <span>2017 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input5_5"></label><br>
+            </div>
+
+
+        </div>
+
+
+        <!-- Frage 6 -->
+        <div class="uk-container" id="frage_6" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                6. Festgestellte Schäden im Einzelnen
+            </div>
+            <hr>
+
+            <br>
+
+
+            <div class="uk-container" id="6_1">
+                <p>Entwurfsplanung [%]:</p>
+                <div class="uk-align-left">
+                    <input id="range6_1" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input6_1" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+
+            <div class="uk-container" id="6_1_1">
+                <label><input class="uk-checkbox" type="checkbox" name="checkbox"> Ohne Entwurfsplanung</label>
+            </div>
+
+            <hr>
+
+            <div class="uk-container" id="6_2">
+                <p>Genehmigungsplanung [%]:</p>
+                <div class="uk-align-left">
+                    <input id="range6_2" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input6_2" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+
+            </div>
+
+            <div class="uk-container" id="6_2_1">
+                <label><input class="uk-checkbox" type="checkbox" name="checkbox"> Ohne Genehmigungsplanung</label>
+            </div>
+
+            <hr>
+
+            <div class="uk-container" id="6_3">
+                <p>Ausführungsplanung [%]:</p>
+                <div class="uk-align-left">
+                    <input id="range6_3" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input6_3" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+
+            <div class="uk-container" id="6_3_1">
+                <label><input class="uk-checkbox" type="checkbox" name="checkbox"> Ohne Ausführungsplanung</label>
+            </div>
+
+            <hr>
+
+            <div class="uk-container" id="6_4">
+                <p>Detailplanung [%]:</p>
+                <div class="uk-align-left">
+                    <input id="range6_4" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input6_4" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+
+            <div class="uk-container" id="6_4_1">
+                <label><input class="uk-checkbox" type="checkbox" name="checkbox"> Ohne Detailplanung</label>
+            </div>
+
+        </div>
+
+        <!-- Frage 7 -->
+        <div class="uk-container" id="frage_7" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                7. Vergabe
+            </div>
+            <hr>
+            <br>
+            <div class="uk-container">
+                <p>Probleme bei der Vergabe [%]</p>
+                <div class="uk-align-left">
+                    <input id="range7" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input7" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- Frage 8 -->
+        <div class="uk-container" id="frage_8" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                8. Benennung der Probleme
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-checkbox cb8" type="checkbox" value="Europaweite Vergabe öffentlicher Aufträge"> europaweite Vergabe öffentlicher Aufträge <br></label>
+                <label><input class="uk-checkbox cb8" type="checkbox" value="Kommunale Auftragsvergabe"> kommunale Auftragsvergabe<br></label>
+                <label><input class="uk-checkbox cb8" type="checkbox" value="Rahmenverträge"> Rahmenverträge<br></label>
+                <label><input class="uk-checkbox cb8" type="checkbox" value="Mangelhafte Leistungsbeschreibungen"> mangelhafte Leistungsbeschreibungen<br></label>
+                <label><input class="uk-checkbox cb8" type="checkbox" value="Sonstiges"> Sonstiges: <br><textarea class="uk-textarea"
+                        rows="4"></textarea></label>
+            </div>
+
+        </div>
+
+        <!-- Frage 9 -->
+        <div class="uk-container" id="frage_9" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                9. Festgestellte Ausführungsschäden, Anzahl insgesamt
+            </div>
+            <hr>
+
+            <div>
+                <label><input class="uk-radio" type="radio" name="radio9" id="allYearsQ9"> 2013 - 2017</label>
+            </div>
+            <div class="uk-margin-top">
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px; display:none;" id="input9"></label>
+            </div>
+
+            <div class="uk-margin-top">
+                <label><input class="uk-radio" type="radio" name="radio9" id="everyYearQ9"> jedes Jahr einzeln</label><br><br>
+            </div>
+            <div style="display:none;" id="eachYearQ9">
+                <span>2013 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input9_1"></label><br>
+                <span>2014 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input9_2"></label><br>
+                <span>2015 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input9_3"></label><br>
+                <span>2016 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input9_4"></label><br>
+                <span>2017 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" id="input9_5"></label><br>
+            </div>
+
+
+        </div>
+
+        <!-- Frage 10 -->
+        <div class="uk-container" id="frage_10" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                10. Besonders schadenanfällige Bauteile / Schadenstellen
+            </div>
+            <hr>
+
+            <div class="uk-container">
+                <p>Baustelle [Baustelleneinrichtung / Sicherheit]</p>
+                <div class="uk-align-left">
+                    <input id="range10" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+            <br>
+            <div class="uk-container">
+                <p>Erdberührte Bauteile [Bodenplatte / Keller / Tiefgarage / Fundament / Gebäudeabdichtung / Sockel]</p>
+                <div class="uk-align-left">
+                    <input id="range10_2" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_2" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+            <br>
+            <div class="uk-container">
+                <p>Gebäudehülle [Dach / Außenwände / Fenster / Türen / Wintergärten / Balkone]</p>
+                <div class="uk-align-left">
+                    <input id="range10_3" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_3" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <br>
+            <div class="uk-container">
+                <p>Gebäudeinnenbereich [Decken / Fußböden / Estrich / Treppen / Innenwände / Innenputz / Innenausbau]</p>
+                <div class="uk-align-left">
+                    <input id="range10_4" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_4" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <div class="uk-container">
+                <p>Dämmung [Perimeterdämmung / Wärmedämmung / Schalldämmung]</p>
+                <div class="uk-align-left">
+                    <input id="range10_5" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_5" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <div class="uk-container">
+                <p>Brandschutz</p>
+                <div class="uk-align-left">
+                    <input id="range10_6" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_6" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <div class="uk-container">
+                <p>Luftdichte Ebene</p>
+                <div class="uk-align-left">
+                    <input id="range10_7" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_7" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <div class="uk-container">
+                <p>Außenanlagen, Terrassen</p>
+                <div class="uk-align-left">
+                    <input id="range10_8" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_8" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+
+            </div>
+            <div class="uk-container">
+                <p>Haustechnik [Heizung / Lüftung / Trinkwasserinstallation / Abwasserinstallation / Solarthermie /
+                    Photovoltaik]</p>
+                <div class="uk-align-left">
+                    <input id="range10_9" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input10_9" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+        </div>
+
+        <!-- Frage 11 -->
+        <div class="uk-container" id="frage_11" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                11. Schadenursache
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-checkbox cb11" type="checkbox" value="Planung"> Planung<br></label>
+                <label><input class="uk-checkbox cb11" type="checkbox" value="Ausführung / Montage"> Ausführung / Montage<br></label>
+                <label><input class="uk-checkbox cb11" type="checkbox" value="Produkt / Material"> Produkt / Material<br></label>
+                <label><input class="uk-checkbox cb11" type="checkbox" value="Sonstiges"> Sonstiges <br></label>
+            </div>
+
+        </div>
+
+        <!-- Frage 12 -->
+        <div class="uk-container" id="frage_12" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                12. Probleme bei der Abnahme
+            </div>
+            <hr>
+            <br>
+            <div class="uk-container">
+                <p>bei [%] aller Bauvorhaben / Projekte</p>
+                <div class="uk-align-left">
+                    <input id="range12" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input12" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Frage 13 -->
+        <div class="uk-container" id="frage_13" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                13. Benennung der Probleme
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-checkbox cb13" type="checkbox" value="Verweigerung der Abnahme"> Verweigerung der Abnahme <br></label>
+                <label><input class="uk-checkbox cb13" type="checkbox" value="Vertragsinhalte"> Vertragsinhalte<br></label>
+                <label><input class="uk-checkbox cb13" type="checkbox" value="Qualitäten / Toleranzen"> Qualitäten / Toleranzen <br></label>
+                <label><input class="uk-checkbox cb13" type="checkbox" value="Schnittstellen / Gewerke"> Schnittstellen / Gewerke <br></label>
+                <label><input class="uk-checkbox cb13" type="checkbox" value="Sonstiges"> Sonstiges: <br><textarea class="uk-textarea"
+                        rows="4"></textarea></label>
+            </div>
+
+        </div>
+
+        <!-- Frage 14 -->
+        <div class="uk-container" id="frage_14" style="display:none">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                14. Festgestellte Schäden
+            </div>
+            <hr>
+            <br>
+            <div class="uk-container">
+                <p>nach 0 - 2 Jahren bei [%] aller Bauvorhaben / Projekte</p>
+                <div class="uk-align-left">
+                    <input id="range14" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input14" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <div class="uk-container">
+                <p>nach 3 - 5 Jahren bei [%] aller Bauvorhaben / Projekte</p>
+                <div class="uk-align-left">
+                    <input id="range14_2" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input14_2" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+            <div class="uk-container">
+                <p>nach über 5 Jahren bei [%] aller Bauvorhaben / Projekte</p>
+                <div class="uk-align-left">
+                    <input id="range14_3" class="uk-range" type="range" value="0" min="0" max="100" step="1" style="width:300px">
+                </div>
+                <div class="uk-align-left">
+                    <input id="input14_3" class="uk-input" type="number" placeholder="Wert in %" style="width:120px">
+                </div>
+            </div>
+        </div>
+
+        <!-- Frage 15 -->
+        <div class="uk-container" id="frage_15" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                15. Schäden an eigener Leistung [Euro]
+            </div>
+            <hr>
+
+            <div>
+                <span>durchschnittliche Schadenbeseitigungskosten pro Jahr (2013 - 2017): </span>
+            </div>
+            <div class="uk-margin-top">
+                <label><input id="input15" class="uk-input" type="number" placeholder="Euro" style="width:120px;"></label>
+            </div>
+
+
+            <div style="display:none;" id="eachYearQ15" class="uk-margin-top">
+                <div class="uk-margin-bottom">
+                    <span>jedes Jahr einzeln</span>
+                </div>
+                <span>2013 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2014 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2015 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2016 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2017 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+            </div>
+
+
+        </div>
+
+        <!-- Frage 16 -->
+        <div class="uk-container" id="frage_16" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                16. Regulierte Mangel- / Schadenbeseitigungskosten durch Versicherungen [Euro]
+            </div>
+            <hr>
+
+            <div>
+                <span>durchschnittliche Mangel- / Schadenbeseitigungskosten pro Jahr (2013 - 2017): </span>
+            </div>
+            <div class="uk-margin-top">
+                <label><input id="input16" class="uk-input" type="number" placeholder="Euro" style="width:120px;"></label>
+            </div>
+
+
+            <div style="display:none;" id="eachYearQ16" class="uk-margin-top">
+                <div class="uk-margin-bottom">
+                    <span>jedes Jahr einzeln</span>
+                </div>
+                <span>2013 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2014 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2015 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2016 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2017 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+            </div>
+
+
+        </div>
+
+        <!-- Frage 17 -->
+        <div class="uk-container" id="frage_17" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                17. Bei einem Selbstbehalt von [Euro]
+            </div>
+            <hr>
+
+            <div>
+                <span>2013 - 2017: </span>
+            </div>
+            <div class="uk-margin-top">
+                <label><input id="input17" class="uk-input" type="number" placeholder="Euro" style="width:120px;"></label>
+            </div>
+
+        </div>
+
+        <!-- Frage 18 -->
+        <div class="uk-container" id="frage_18" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                18. Festgestellte Bauschadenkosten [Euro]
+            </div>
+            <hr>
+
+            <div>
+                <span>durchschnittliche Bauschadenkosten pro Jahr (2013 - 2017): </span>
+            </div>
+            <div class="uk-margin-top">
+                <label><input id="input18" class="uk-input" type="number" placeholder="Euro" style="width:120px;"></label>
+            </div>
+
+
+            <div style="display:none;" id="eachYearQ18" class="uk-margin-top">
+                <div class="uk-margin-bottom">
+                    <span>jedes Jahr einzeln</span>
+                </div>
+                <span>2013 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2014 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2015 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2016 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+                <span>2017 : </span>
+                <label><input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"></label><br>
+            </div>
+        </div>
+
+        <!-- Frage 19 -->
+        <div class="uk-container" id="frage_19" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                19. Wie hat sich die Anzahl der Bauschäden in Ihrem Fachbereich in den letzten 5 Jahren verändert?
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-radio" type="radio" name="radio19" checked value="deutlich verschlechtert"> deutlich verschlechtert<br></label>
+                <label><input class="uk-radio" type="radio" name="radio19" value="verschlechtert"> verschlechtert<br></label>
+                <label><input class="uk-radio" type="radio" name="radio19" value="gleich geblieben"> gleich geblieben<br></label>
+                <label><input class="uk-radio" type="radio" name="radio19" value="verbessert"> verbessert<br></label>
+                <label><input class="uk-radio" type="radio" name="radio19" value="deutlich verbessert"> deutlich verbessert</label>
+
+            </div>
+        </div>
+
+
+        <!-- Frage 20 -->
+        <div class="uk-container" id="frage_20" style="display: none;">
+            <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
+                20. Wie hat sich die Bauqualität in Deutschland in den letzten 5 Jahren verändert?
+            </div>
+            <hr>
+            <div>
+                <label><input class="uk-radio" type="radio" name="radio20" checked value="deutlich verschlechtert"> deutlich verschlechtert<br></label>
+                <label><input class="uk-radio" type="radio" name="radio20" value="verschlechtert"> verschlechtert<br></label>
+                <label><input class="uk-radio" type="radio" name="radio20" value="gleich geblieben"> gleich geblieben<br></label>
+                <label><input class="uk-radio" type="radio" name="radio20" value="verbessert"> verbessert<br></label>
+                <label><input class="uk-radio" type="radio" name="radio20" value="deutlich verbessert"> deutlich verbessert</label>
+
+            </div>
+        </div>
+
+        <!-- Ende -->
+        <div class="uk-container uk-margin-top" id="frage_21" style="display: none;">
+            <h2 class="uk-text-center uk-margin-top">Vielen Dank für ihre Antworten!</h2><br>
+        </div>
+
+        <hr>
+
+        <div class="uk-container uk-margin-top" id="buttons">
+            <span class="weiter" id="next">
+                <a class="uk-button uk-button-default">Weiter</a>
+            </span>
+            <span class="zuruck" id="back" style="display:none;">
+                <a class="uk-button uk-button-default">Zurück</a>
+            </span>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
