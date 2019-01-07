@@ -12,68 +12,76 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="answer_question")
+@Table(name = "answer_question")
 @SequenceGenerator(
-		name = "AnswerQuestionGenerator1",
-		allocationSize = 1,
-		initialValue = 1)
+        name = "AnswerQuestionGenerator1",
+        allocationSize = 1,
+        initialValue = 1)
 public class Answer_Question {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AnswerQuestionGenerator1")
-	@Column(name="answer_question_id")
-	private int id;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="answer_id_fk")
-	private Answer answer;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="question_id_fk")
-	private Question question;
-	
-	public Answer_Question() {
-		
-	}
 
-	public Answer_Question(Answer answer, Question question) {
-		this.answer = answer;
-		this.question = question;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AnswerQuestionGenerator1")
+    @Column(name = "answer_question_id")
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "answer_id_fk")
+    private Answer answer;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id_fk")
+    private Question question;
 
-	public Answer getAnswer() {
-		return answer;
-	}
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id_fk")
+    private User user;
 
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
-	}
+    public Answer_Question() {
 
-	public Question getQuestion() {
-		return question;
-	}
+    }
 
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
+    public Answer_Question(Answer answer, Question question, User user) {
+        this.answer = answer;
+        this.question = question;
+        this.user = user;
+    }
 
-	@Override
-	public String toString() {
-		return "Answer_Question [id=" + id + ", answer=" + answer + ", question=" + question + "]";
-	}
-	
-	
-	
-	
-	
-	
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    @Override
+    public String toString() {
+        return "Answer_Question [id=" + id + ", answer=" + answer + ", question=" + question + "]";
+    }
+
 
 }

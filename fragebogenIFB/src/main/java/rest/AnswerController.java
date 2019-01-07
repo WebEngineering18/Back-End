@@ -2,6 +2,7 @@ package rest;
 
 import java.util.List;
 
+import entity.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,79 +19,117 @@ import entity.Question;
 import repository.AnswerQuestionRepository;
 import repository.AnswerRepository;
 import repository.QuestionRepository;
+import repository.UserRepository;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class AnswerController {
 
-	@Autowired
-	private AnswerRepository answerRepository;
-	@Autowired
-	private AnswerQuestionRepository aqRepository;
-	@Autowired
-	private QuestionRepository questionRepository;
-	String singleAnswer;
+    @Autowired
+    private AnswerRepository answerRepository;
+    @Autowired
+    private AnswerQuestionRepository aqRepository;
 
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json", value = "/testAnswer")
-	public void create(@RequestBody final String answer) {
+    @Autowired
+    private QuestionRepository questionRepository;
 
-		JSONArray wholeArray = new JSONArray(answer);
-		
-		for (int i = 0; i < wholeArray.length(); i++) {
-			
-			JSONObject jb = wholeArray.getJSONObject(i);
-			int questionId = jb.getInt("question_id");
-			JSONArray singleAnswerArray = jb.optJSONArray("answer");
-			
-			if (singleAnswerArray != null) {
-				
-				for (int j = 0; j < singleAnswerArray.length(); j++) {
-					
-					singleAnswer = "";
-					singleAnswer += singleAnswerArray.get(j);
-					if (!singleAnswer.equals(""))
-					saveAnswer(questionId);
-				}
-			} else {
-				
-				singleAnswer = "";
-				singleAnswer += jb.get("answer");
-				if (!singleAnswer.equals(""))
-				saveAnswer(questionId);
-			}
-		}
-	}
+    @Autowired
+    private UserRepository userRepository;
 
-	private void saveAnswer(int questionId) {
-		Answer antwort = new Answer(singleAnswer);
-		answerRepository.save(antwort);
-		
-		if (questionRepository.existsById(questionId)) {
-			
-			Question q = questionRepository.findQuestionById(questionId);
-			aqRepository.save(new Answer_Question(antwort, q));
-		}
-	}
+    String singleAnswer;
 
-	@GetMapping("/answer/{id}")
-	public Answer getAnswerById(@PathVariable(value = "id") int id) {
-		return answerRepository.findAnswerById(id);
-	}
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json", value = "/testAnswer")
+    public void create(@RequestBody final String answer, HttpServletRequest request) {
 
-	@GetMapping("/findAllAnswers")
-	public String findAll() {
+        User user = new User(request.getRemoteAddr());
+        userRepository.save(user);
 
-		List<Answer> list = answerRepository.findAll();
-		String result = "";
-		for (Answer answer : list) {
-			result += answer.toString() + "<br>";
-		}
-		return result;
-	}
+        JSONArray wholeArray = new JSONArray(answer);
 
-	@RequestMapping("/deleteAllAnswers")
-	public String deleteAll() {
-		answerRepository.deleteAll();
-		return "Alle Daten gelöscht";
-	}
+        for (int i = 0; i < wholeArray.length(); i++) {
+
+            JSONObject jb = wholeArray.getJSONObject(i);
+            int questionId = jb.getInt("question_id");
+            JSONArray singleAnswerArray = jb.optJSONArray("answer");
+
+            if (singleAnswerArray != null) {
+
+                for (int j = 0; j < singleAnswerArray.length(); j++) {
+
+                    singleAnswer = "";
+                    singleAnswer += singleAnswerArray.get(j);
+                    if (!singleAnswer.equals(""))
+                        saveAnswer(questionId, user);
+                }
+            } else {
+
+                singleAnswer = "";
+                singleAnswer += jb.get("answer");
+                if (!singleAnswer.equals(""))
+                    saveAnswer(questionId, user);
+            }
+        }
+    }
+
+    private void saveAnswer(int questionId, User user) {
+        Answer antwort = new Answer(singleAnswer);
+        answerRepository.save(antwort);
+
+        if (questionRepository.existsById(questionId)) {
+
+            Question q = questionRepository.findQuestionById(questionId);
+            aqRepository.save(new Answer_Question(antwort, q, user));
+        }
+    }
+
+    @GetMapping("/findAnswersWithQuestions")
+    public String findAnswersWithQuestions() {
+
+        List<Answer_Question> list = aqRepository.findAll();
+        String question = "";
+        String answer = "";
+        String result = "";
+
+        for (Answer_Question aq : list) {
+
+
+            if (question.contains(aq.getQuestion().getQuestion())) {
+
+                answer = aq.getAnswer().getAnswer();
+                result += "," + answer;
+
+            } else {
+                question = "<br>" + aq.getQuestion().getQuestion() + ": ";
+                answer = aq.getAnswer().getAnswer();
+
+                result += question + answer;
+            }
+
+        }
+        return result;
+    }
+
+    @GetMapping("/answer/{id}")
+    public Answer getAnswerById(@PathVariable(value = "id") int id) {
+        return answerRepository.findAnswerById(id);
+    }
+
+    @GetMapping("/findAllAnswers")
+    public String findAll() {
+
+        List<Answer> list = answerRepository.findAll();
+        String result = "";
+        for (Answer answer : list) {
+            result += answer.toString() + "<br>";
+        }
+        return result;
+    }
+
+    @RequestMapping("/deleteAllAnswers")
+    public String deleteAll() {
+        answerRepository.deleteAll();
+        return "Alle Daten gelöscht";
+    }
 
 }
