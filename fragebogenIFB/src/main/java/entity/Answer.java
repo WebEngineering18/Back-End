@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="answers")
 @SequenceGenerator(
-		name = "AnswerGenerator1",
+		name = "AnswerGeneratorSequence",
 		allocationSize = 1,
 		initialValue = 1)
 public class Answer extends Created_At {
@@ -22,14 +22,14 @@ public class Answer extends Created_At {
 	private static final long serialVersionUID = -584324990481516603L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AnswerGenerator1")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AnswerGeneratorSequence")
 	@Column(name="answer_id")
 	private int id;
 	
 	@Column(name="answer")
 	private String answer;
 	
-	protected Answer() {
+	public Answer() {
 		super();
 	}
 

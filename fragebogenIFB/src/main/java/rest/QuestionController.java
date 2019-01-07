@@ -32,7 +32,7 @@ public class QuestionController {
 				new Question("Benennung der Probleme"),new Question("Festgestellte Schäden"),
 				new Question("Schäden an eigener Leistung"),new Question("Regulierte Mangel- / Schadenbeseitigungskosten durch Versicherungen"),
 				new Question("Bei einem Selbstbehalt von"),new Question("Festgestellte Bauschadenkosten"),
-				new Question("Wie hat sich die Anzahll der Bauschäden in Ihrem Fachbereich in den letzten 5 Jahren verändert?"),
+				new Question("Wie hat sich die Anzahl der Bauschäden in Ihrem Fachbereich in den letzten 5 Jahren verändert?"),
 				new Question("Wie hat sich die Bauqualität in Deutschland in den letzten 5 Jahren verändert")));
 		
 		return "Alle Fragen gespeichert";

@@ -28,24 +28,24 @@ public abstract class Created_At implements Serializable {
 	 */
 	private static final long serialVersionUID = 1744828216169661564L;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@CreatedDate
-	private Date createdAt;
+	private LocalDateTime createdAt;
 	
 	protected Created_At() {
 		
 	}
 
-	public Created_At(Date createdAt) {
+	public Created_At(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Date getCreatedAt() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 

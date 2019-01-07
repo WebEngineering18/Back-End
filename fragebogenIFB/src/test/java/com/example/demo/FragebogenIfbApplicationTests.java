@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import app.FragebogenIfbApplication;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = FragebogenIfbApplication.class)
+@SpringBootTest(classes=FragebogenIfbApplication.class)
 public class FragebogenIfbApplicationTests {
 
 	@Test

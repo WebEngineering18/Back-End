@@ -1,26 +1,23 @@
 package rest;
 
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.core.JsonParser;
-
 import entity.Answer;
 import entity.Answer_Question;
 import entity.Question;
 import repository.AnswerQuestionRepository;
 import repository.AnswerRepository;
 import repository.QuestionRepository;
-import org.json.*;
 
 @RestController
 public class AnswerController {
@@ -31,50 +28,47 @@ public class AnswerController {
 	private AnswerQuestionRepository aqRepository;
 	@Autowired
 	private QuestionRepository questionRepository;
+	String singleAnswer;
 
-	@RequestMapping("/edit")
-	public String edit(@RequestParam("frage_id") int frage_id, @RequestParam("antwort") String antwort) {
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json", value = "/testAnswer")
+	public void create(@RequestBody final String answer) {
+
+		JSONArray wholeArray = new JSONArray(answer);
 		
-		Answer answer = new Answer(antwort);
-		answerRepository.save(answer);
-		
-		if (questionRepository.existsById(frage_id)) {
-			Question question = questionRepository.findQuestionById(frage_id);
-			aqRepository.save(new Answer_Question(answer, question));
+		for (int i = 0; i < wholeArray.length(); i++) {
+			
+			JSONObject jb = wholeArray.getJSONObject(i);
+			int questionId = jb.getInt("question_id");
+			JSONArray singleAnswerArray = jb.optJSONArray("answer");
+			
+			if (singleAnswerArray != null) {
+				
+				for (int j = 0; j < singleAnswerArray.length(); j++) {
+					
+					singleAnswer = "";
+					singleAnswer += singleAnswerArray.get(j);
+					if (!singleAnswer.equals(""))
+					saveAnswer(questionId);
+				}
+			} else {
+				
+				singleAnswer = "";
+				singleAnswer += jb.get("answer");
+				if (!singleAnswer.equals(""))
+				saveAnswer(questionId);
+			}
 		}
-
-		return antwort;
-
-	}
-	
-	@CrossOrigin(origins = "http://localhost:8080")
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
-			consumes = MediaType.APPLICATION_JSON_VALUE, value = "/testAnswer")
-	public List<Answer> create(@RequestBody final Answer answer) {
-		
-		
-		JSONObject obj = new JSONObject(answer);
-		
-		
-		
-		
-		
-		answerRepository.save(answer);
-		return answerRepository.findAll();
 	}
 
-	@RequestMapping("/saveAnswer/{answer}/{questionId}")
-	public Answer_Question saveAnswer(@PathVariable String answer, @PathVariable int questionId) {
-		Answer a = new Answer(answer);
-		answerRepository.save(a);
-
+	private void saveAnswer(int questionId) {
+		Answer antwort = new Answer(singleAnswer);
+		answerRepository.save(antwort);
+		
 		if (questionRepository.existsById(questionId)) {
+			
 			Question q = questionRepository.findQuestionById(questionId);
-			aqRepository.save(new Answer_Question(a, q));
+			aqRepository.save(new Answer_Question(antwort, q));
 		}
-
-		return aqRepository.findByAnswerId(a.getId());
-
 	}
 
 	@GetMapping("/answer/{id}")
@@ -99,8 +93,4 @@ public class AnswerController {
 		return "Alle Daten gelöscht";
 	}
 
-	@RequestMapping("/test")
-	public Answer save() {
-		return answerRepository.save(new Answer("5"));
-	}
 }
