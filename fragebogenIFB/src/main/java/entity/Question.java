@@ -12,7 +12,8 @@ import javax.persistence.Table;
 @Table(name = "questions")
 @SequenceGenerator(
 		name = "questionGenerator",
-		initialValue = 1)
+		initialValue = 1,
+		allocationSize = 1)
 public class Question {
 
 	@Id

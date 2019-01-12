@@ -78,9 +78,10 @@ public class Answer_Question {
         this.question = question;
     }
 
+    
     @Override
     public String toString() {
-        return "Answer_Question [id=" + id + ", answer=" + answer + ", question=" + question + "]";
+        return "Answer_Question [user=" + user.getId() + ", id=" + id + ", answer=" + answer + ", question=" + question + "]";
     }
 
 

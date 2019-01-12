@@ -82,7 +82,7 @@ window.onload = function () {
                         this.headline = "Entwicklung der Bauqualität";
                     }
                     else if (this.questionIndex == 21) {
-                        this.headline = "Institut für Bauforschung";
+                        this.headline = "Institut für Bauforschung e. V.";
                     }
                 },
                 validate: function () {

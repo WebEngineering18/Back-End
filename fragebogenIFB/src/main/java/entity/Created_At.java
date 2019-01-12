@@ -31,21 +31,21 @@ public abstract class Created_At implements Serializable {
 	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@CreatedDate
-	private LocalDateTime createdAt;
+	private Date createdAt;
 	
 	protected Created_At() {
 		
 	}
 
-	public Created_At(LocalDateTime createdAt) {
+	public Created_At(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public LocalDateTime getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 

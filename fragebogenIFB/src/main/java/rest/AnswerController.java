@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import app.ExcelView;
+import app.ExcelViewColumn;
 import entity.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -112,7 +113,7 @@ public class AnswerController {
         model.addAttribute("answer_questions", aqRepository.findAll());
         model.addAttribute("questions", questionRepository.findAll());
         model.addAttribute("users", userRepository.findAll());
-        return new ModelAndView(new ExcelView(), (Map<String, ?>) model);
+        return new ModelAndView(new ExcelViewColumn(), (Map<String, ?>) model);
     }
 
     @GetMapping("/answer/{id}")
