@@ -25,21 +25,29 @@ public class ExcelViewColumn extends AbstractXlsView {
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		int rowCount = 1;
+		int iterate = 1;
+		Row answerRow;
+		int cellId;
+
+		int cell = 1;
+
+		int rowCountFunction = rowCount + 1;
+		int previousElement = 0;
+		int aqPrevious = 0;
+		int aqCurrent = 0;
+		int helpVariable = 0;
 		// change the file name
 		response.setHeader("Content-Disposition", "attachment; filename=\"fragebogen-auswertung.xls\"");
 
 		@SuppressWarnings("unchecked")
 		List<Answer_Question> aq_list = (List<Answer_Question>) model.get("answer_questions");
-
-		/*
-		 * for (Answer_Question aq : aq_list) { System.out.println(aq.toString()); }
-		 */
 		List<User> u_list = (List<User>) model.get("users");
 		List<Question> q_list = (List<Question>) model.get("questions");
 
 		// create excel xls sheet
 		Sheet sheet = workbook.createSheet("Fragebogen Auswertung");
-		sheet.setDefaultColumnWidth(30);
+		sheet.setDefaultColumnWidth(40);
 
 		// create style for header cells
 		CellStyle style = workbook.createCellStyle();
@@ -56,35 +64,42 @@ public class ExcelViewColumn extends AbstractXlsView {
 		header.createCell(0).setCellValue("Id");
 		header.getCell(0).setCellStyle(style);
 
-		int cell = 1;
 		for (Question q : q_list) {
 			header.createCell(cell).setCellValue(q.getQuestion());
 			header.getCell(cell).setCellStyle(style);
 			cell++;
 		}
 
-		int rowCount = 1;
+		for (Answer_Question aq : aq_list) {
+			answerRow = sheet.createRow(iterate++);
+		}
+
 		for (User user : u_list) {
-			Row answerRow = sheet.createRow(rowCount);
-			answerRow.createCell(0).setCellValue(user.getId());
+
+			cellId = rowCount;
+			for (int i = 0; i < 10; i++) {
+				answerRow = sheet.getRow(cellId++);
+				answerRow.createCell(0).setCellValue(user.getId());
+			}
+			answerRow = sheet.getRow(rowCount);
 			cell = 1;
 
-			int rowCountFunction = rowCount + 1;
-			int previousElement = 0;
-			int aqPrevious = 0;
-			int aqCurrent = 0;
-			int helpVariable = 0;
+			rowCountFunction = rowCount + 1;
+
 			for (int i = 0; i < aq_list.size(); i++) {
 
-				helpVariable = i;
 				if (user.getId() == aq_list.get(i).getUser().getId()) {
-					System.out.println(aq_list.get(i));
-					if (i != 0) {
+
+					helpVariable = i - 1;
+					if (i == 0 || (aq_list.get(i).getUser().getId() != aq_list.get(helpVariable).getUser().getId())) {
+						answerRow.createCell(cell).setCellValue(aq_list.get(i).getAnswer().getAnswer());
+					} else {
+						helpVariable = i;
 						previousElement = helpVariable - 1;
 						aqCurrent = aq_list.get(i).getQuestion().getId();
 						aqPrevious = aq_list.get(previousElement).getQuestion().getId();
 						if (aqCurrent == aqPrevious) {
-							answerRow = sheet.createRow(rowCountFunction++);
+							answerRow = sheet.getRow(rowCountFunction++);
 							answerRow.createCell(cell).setCellValue(aq_list.get(i).getAnswer().getAnswer());
 						} else {
 							++cell;
@@ -92,13 +107,11 @@ public class ExcelViewColumn extends AbstractXlsView {
 							answerRow = sheet.getRow(rowCount);
 							answerRow.createCell(cell).setCellValue(aq_list.get(i).getAnswer().getAnswer());
 						}
-						
-					} else {
-						answerRow.createCell(cell).setCellValue(aq_list.get(i).getAnswer().getAnswer());
+
 					}
 				}
 			}
-			rowCount++;
+			rowCount += 10;
 		}
 	}
 

@@ -28,114 +28,110 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class AnswerController {
 
-    @Autowired
-    private AnswerRepository answerRepository;
-    @Autowired
-    private AnswerQuestionRepository aqRepository;
+	@Autowired
+	private AnswerRepository answerRepository;
+	@Autowired
+	private AnswerQuestionRepository aqRepository;
 
-    @Autowired
-    private QuestionRepository questionRepository;
+	@Autowired
+	private QuestionRepository questionRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    String singleAnswer;
+	String singleAnswer;
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json", value = "/testAnswer")
-    public void create(@RequestBody final String answer, HttpServletRequest request) {
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = "application/json", value = "/testAnswer")
+	public void create(@RequestBody final String answer, HttpServletRequest request) {
 
-        User user = new User(request.getRemoteAddr());
-        userRepository.save(user);
+		User user = new User(request.getRemoteAddr());
+		userRepository.save(user);
 
-        JSONArray wholeArray = new JSONArray(answer);
+		JSONArray wholeArray = new JSONArray(answer);
 
-        for (int i = 0; i < wholeArray.length(); i++) {
+		for (int i = 0; i < wholeArray.length(); i++) {
 
-            JSONObject jb = wholeArray.getJSONObject(i);
-            int questionId = jb.getInt("question_id");
-            JSONArray singleAnswerArray = jb.optJSONArray("answer");
+			JSONObject jb = wholeArray.getJSONObject(i);
+			int questionId = jb.getInt("question_id");
+			JSONArray singleAnswerArray = jb.optJSONArray("answer");
 
-            if (singleAnswerArray != null) {
+			if (singleAnswerArray != null) {
 
-                for (int j = 0; j < singleAnswerArray.length(); j++) {
+				for (int j = 0; j < singleAnswerArray.length(); j++) {
 
-                    singleAnswer = "";
-                    singleAnswer += singleAnswerArray.get(j);
-                    if (!singleAnswer.equals(""))
-                        saveAnswer(questionId, user);
-                }
-            } else {
+					singleAnswer = "";
+					singleAnswer += singleAnswerArray.get(j);
 
-                singleAnswer = "";
-                singleAnswer += jb.get("answer");
-                if (!singleAnswer.equals(""))
-                    saveAnswer(questionId, user);
-            }
-        }
-    }
+					saveAnswer(questionId, user);
+				}
+			} else {
 
-    private void saveAnswer(int questionId, User user) {
-        Answer antwort = new Answer(singleAnswer);
-        answerRepository.save(antwort);
+				singleAnswer = "";
+				singleAnswer += jb.get("answer");
 
-        if (questionRepository.existsById(questionId)) {
+				saveAnswer(questionId, user);
+			}
+		}
+	}
 
-            Question q = questionRepository.findQuestionById(questionId);
-            aqRepository.save(new Answer_Question(antwort, q, user));
-        }
-    }
+	private void saveAnswer(int questionId, User user) {
+		Answer antwort = new Answer(singleAnswer);
+		answerRepository.save(antwort);
 
-    @GetMapping("/findAnswersWithQuestions")
-    public String findAnswersWithQuestions() {
+		if (questionRepository.existsById(questionId)) {
 
-        List<Answer_Question> list = aqRepository.findAll();
+			Question q = questionRepository.findQuestionById(questionId);
+			aqRepository.save(new Answer_Question(antwort, q, user));
+		}
+	}
 
-        ArrayList<String> answers = new ArrayList<>();
-        ArrayList<String> questions = new ArrayList<>();
-        int id;
+	@GetMapping("/findAnswersWithQuestions")
+	public String findAnswersWithQuestions() {
 
-        String result = "";
+		List<Answer_Question> list = aqRepository.findAll();
 
-        for (Answer_Question aq : list){
+		ArrayList<String> answers = new ArrayList<>();
+		ArrayList<String> questions = new ArrayList<>();
+		int id;
 
+		String result = "";
 
+		for (Answer_Question aq : list) {
 
-        }
+		}
 
+		return result;
+	}
 
+	@RequestMapping(value = "/download", method = RequestMethod.GET)
+	public ModelAndView download(Model model) {
 
-        return result;
-    }
+		model.addAttribute("answer_questions", aqRepository.findAll());
+		model.addAttribute("questions", questionRepository.findAll());
+		model.addAttribute("users", userRepository.findAll());
+		return new ModelAndView(new ExcelViewColumn(), (Map<String, ?>) model);
+	}
 
-    @RequestMapping(value = "/download", method = RequestMethod.GET)
-    public ModelAndView download(Model model) {
+	@GetMapping("/answer/{id}")
+	public Answer getAnswerById(@PathVariable(value = "id") int id) {
+		return answerRepository.findAnswerById(id);
+	}
 
-        model.addAttribute("answer_questions", aqRepository.findAll());
-        model.addAttribute("questions", questionRepository.findAll());
-        model.addAttribute("users", userRepository.findAll());
-        return new ModelAndView(new ExcelViewColumn(), (Map<String, ?>) model);
-    }
+	@GetMapping("/findAllAnswers")
+	public String findAll() {
 
-    @GetMapping("/answer/{id}")
-    public Answer getAnswerById(@PathVariable(value = "id") int id) {
-        return answerRepository.findAnswerById(id);
-    }
+		List<Answer> list = answerRepository.findAll();
+		String result = "";
+		for (Answer answer : list) {
+			result += answer.toString() + "<br>";
+		}
+		return result;
+	}
 
-    @GetMapping("/findAllAnswers")
-    public String findAll() {
-
-        List<Answer> list = answerRepository.findAll();
-        String result = "";
-        for (Answer answer : list) {
-            result += answer.toString() + "<br>";
-        }
-        return result;
-    }
-
-    @RequestMapping("/deleteAllAnswers")
-    public String deleteAll() {
-        answerRepository.deleteAll();
-        return "Alle Daten gelöscht";
-    }
+	@RequestMapping("/deleteAllAnswers")
+	public String deleteAll() {
+		answerRepository.deleteAll();
+		return "Alle Daten gelöscht";
+	}
 
 }
