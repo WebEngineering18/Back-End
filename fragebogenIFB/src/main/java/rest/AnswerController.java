@@ -62,6 +62,10 @@ public class AnswerController {
 					singleAnswer = "";
 					singleAnswer += singleAnswerArray.get(j);
 
+					if(singleAnswer.equals("null") || singleAnswer.equals("")){
+						singleAnswer = "0";
+					}
+
 					saveAnswer(questionId, user);
 				}
 			} else {

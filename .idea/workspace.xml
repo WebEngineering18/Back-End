@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc4d72d3-d78b-4e79-9865-61a1199c5c40" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/fragebogen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/js/fragebogen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/static/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/Fragebogen.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/IFB.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/images/IFB.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/js/ajaxTest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/js/slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/js/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/start.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/style/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/fragebogenIFB/bin/src/main/resources/static/style/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/static/Fragebogen.html" beforeDir="false" afterPath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/static/fragebogen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/static/js/fragebogen.js" beforeDir="false" afterPath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/static/js/fragebogen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragebogenIFB/src/main/resources/static/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragebogenIFB/src/main/java/rest/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fragebogenIFB/src/main/java/rest/AnswerController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/fragebogenIFB/bin/target/" />
     <ignored path="$PROJECT_DIR$/fragebogenIFB/target/" />
@@ -34,8 +19,8 @@
       <file leaf-file-name="AnswerController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fragebogenIFB/src/main/java/rest/AnswerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+            <state relative-caret-position="-37">
+              <caret line="55" column="68" lean-forward="true" selection-start-line="55" selection-start-column="68" selection-end-line="55" selection-end-column="68" />
               <folding>
                 <element signature="e#3083#3084#0" expanded="true" />
                 <element signature="e#3132#3133#0" expanded="true" />
@@ -111,10 +96,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1011" />
+    <option name="width" value="1440" />
+    <option name="height" value="826" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -122,6 +107,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -140,7 +126,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,12 +224,13 @@
       <workItem from="1546865733882" duration="5479000" />
       <workItem from="1546958894859" duration="6455000" />
       <workItem from="1546965434860" duration="133000" />
-      <workItem from="1547557513716" duration="5519000" />
+      <workItem from="1547557513716" duration="5665000" />
+      <workItem from="1547564756293" duration="414000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18424000" />
+    <option name="totallyTimeSpent" value="18984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="826" extended-state="6" />
@@ -274,7 +260,6 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -282,6 +267,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,13 +292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -361,13 +340,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -389,10 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding>
-            <element signature="e#746#747#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -525,10 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
-          <folding>
-            <element signature="e#746#747#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -642,20 +606,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fragebogenIFB/src/main/java/rest/AnswerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+        <state relative-caret-position="-37">
+          <caret line="55" column="68" lean-forward="true" selection-start-line="55" selection-start-column="68" selection-end-line="55" selection-end-column="68" />
           <folding>
             <element signature="e#3083#3084#0" expanded="true" />
             <element signature="e#3132#3133#0" expanded="true" />
