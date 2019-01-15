@@ -5,11 +5,11 @@
     <title>Fragebogen</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/IFB.jpg" />
+    <link rel="shortcut icon" href="images/IFB.jpg"/>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="style/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="style/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="style/stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="style/uikit.min.css"/>
 
     <!-- JavaScript -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -65,7 +65,7 @@
                 <label><input class="uk-checkbox" type="checkbox" value="Holzbau" v-model="answers[questionIndex-1].answer">
                     Holzbau<br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Wärme-, Kälte-, Schall- und Brandschutze"
+                <label><input class="uk-checkbox" type="checkbox" value="Wärme-, Kälte-, Schall- und Brandschutz"
                               v-model="answers[questionIndex-1].answer">
                     Wärme-, Kälte-, Schall- und Brandschutz<br></label>
 
@@ -112,7 +112,8 @@
         <!-- Frage 3 -->
         <div class="uk-container" id="frage_3" v-if="questionIndex == 3">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                3. Gesamtanzahl Bauvorhaben / Projekte in den letzten 5 Jahren <span uk-icon="info" uk-tooltip="Hier können Sie nur eine Auswahl treffen."></span>
+                3. Gesamtanzahl Bauvorhaben / Projekte in den letzten 5 Jahren <span uk-icon="info"
+                                                                                     uk-tooltip="Hier können Sie nur eine Auswahl treffen."></span>
             </div>
             <hr>
             <div>
@@ -140,7 +141,8 @@
         <!-- Frage 4 -->
         <div class="uk-container" v-if="questionIndex == 4">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                4. Bauvorhaben / Projekte <span uk-icon="info" uk-tooltip="Beide Werte müssen zusammen 100% ergeben."></span>
+                4. Bauvorhaben / Projekte <span uk-icon="info"
+                                                uk-tooltip="Beide Werte müssen zusammen 100% ergeben."></span>
             </div>
             <hr>
 
@@ -151,7 +153,8 @@
                            max="100" step="1" style="width:250px">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" v-model="answers[questionIndex-1].answer[0]" placeholder="Wert in %"
+                    <input class="uk-input" type="number" v-model="answers[questionIndex-1].answer[0]"
+                           placeholder="Wert in %"
                            style="width:120px">
                 </div>
 
@@ -164,7 +167,8 @@
                            max="100" step="1" style="width:250px">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" v-model="answers[questionIndex-1].answer[1]" placeholder="Wert in %"
+                    <input class="uk-input" type="number" v-model="answers[questionIndex-1].answer[1]"
+                           placeholder="Wert in %"
                            style="width:120px">
                 </div>
             </div>
@@ -173,7 +177,8 @@
         <!-- Frage 5 -->
         <div class="uk-container" v-if="questionIndex == 5">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                5. Festgestellte Planungsschäden, Anzahl insgesamt <span uk-icon="info" uk-tooltip="Hier bleibt es Ihnen überlassen für welche Auswahl Sie sich entscheiden. Sie können auch beide Optionen ausfüllen"></span>
+                5. Festgestellte Planungsschäden, Anzahl insgesamt <span uk-icon="info"
+                                                                         uk-tooltip="Hier bleibt es Ihnen überlassen für welche Auswahl Sie sich entscheiden. Sie können auch beide Optionen ausfüllen"></span>
             </div>
             <hr>
             <div class="uk-clearfix">
@@ -185,7 +190,8 @@
                     </div>
 
                     <div class="uk-margin-top" v-if="answers[questionIndex-1].type == '2013-2017'">
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer">
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer">
                     </div>
                 </div>
 
@@ -197,15 +203,20 @@
                     </div>
                     <div v-if="answers[questionIndex-1].type == 'everyYear'">
                         <span>2013 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[0]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[0]"><br>
                         <span>2014 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[1]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[1]"><br>
                         <span>2015 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[2]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[2]"><br>
                         <span>2016 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[3]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[3]"><br>
                         <span>2017 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[4]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[4]"><br>
                     </div>
                 </div>
             </div>
@@ -215,7 +226,8 @@
         <!-- Frage 6 -->
         <div class="uk-container" v-if="questionIndex == 6">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                6. Festgestellte Schäden im Einzelnen <span uk-icon="info" uk-tooltip="Alle Werte müssen zusammen 100% ergeben."></span>
+                6. Festgestellte Schäden im Einzelnen <span uk-icon="info"
+                                                            uk-tooltip="Alle Werte müssen zusammen 100% ergeben."></span>
             </div>
             <hr>
             <br>
@@ -223,28 +235,33 @@
             <div class="uk-clearfix">
                 <div class="uk-column-1-2@l uk-column-divider">
                     <div style="height: 140px;">
-                        <div class="uk-container uk-padding-remove-horizontal" v-if="!answers[questionIndex-1].no_answer[0]">
+                        <div class="uk-container uk-padding-remove-horizontal"
+                             v-if="!answers[questionIndex-1].no_answer[0]">
                             <p>Entwurfsplanung [%]:</p>
                             <div class="uk-column-1-2">
                                 <div>
-                                    <input class="uk-range" type="range" value="0" v-model="answers[questionIndex-1].answer[0]"
+                                    <input class="uk-range" type="range" value="0"
+                                           v-model="answers[questionIndex-1].answer[0]"
                                            min="0" max="100" step="1">
                                 </div>
                                 <div>
-                                    <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[0]"
+                                    <input class="uk-input" type="number" placeholder="Wert in %"
+                                           v-model="answers[questionIndex-1].answer[0]"
                                            min="0" max="100">
                                 </div>
                             </div>
                         </div>
                         <div class="uk-container cb-mt">
-                            <label><input class="uk-checkbox" type="checkbox" name="checkbox" value="Ohne Entwurfsplanung"
-                                          v-model="answers[questionIndex-1].no_answer[0]">
+                            <label><input class="uk-checkbox" type="checkbox" name="checkbox"
+                                          value="Ohne Entwurfsplanung"
+                                          v-model="answers[questionIndex-1].no_answer[0]" @click="noAnswer(questionIndex-1, 0)">
                                 Ohne Entwurfsplanung</label>
                         </div>
                     </div>
 
                     <div style="height: 140px;">
-                        <div class="uk-container uk-padding-remove-horizontal" v-if="!answers[questionIndex-1].no_answer[1]">
+                        <div class="uk-container uk-padding-remove-horizontal"
+                             v-if="!answers[questionIndex-1].no_answer[1]">
                             <p>Genehmigungsplanung [%]:</p>
                             <div class="uk-column-1-2">
                                 <div>
@@ -258,8 +275,9 @@
                             </div>
                         </div>
                         <div class="uk-container cb-mt">
-                            <label><input class="uk-checkbox" type="checkbox" name="checkbox" value="Ohne Genehmigungsplanung"
-                                          v-model="answers[questionIndex-1].no_answer[1]">
+                            <label><input class="uk-checkbox" type="checkbox" name="checkbox"
+                                          value="Ohne Genehmigungsplanung"
+                                          v-model="answers[questionIndex-1].no_answer[1]" @click="noAnswer(questionIndex-1, 1)">
                                 Ohne Genehmigungsplanung</label>
                         </div>
                     </div>
@@ -271,7 +289,8 @@
             <div class="uk-clearfix">
                 <div class="uk-column-1-2@l uk-column-divider">
                     <div style="height: 140px;">
-                        <div class="uk-container uk-padding-remove-horizontal" v-if="!answers[questionIndex-1].no_answer[2]">
+                        <div class="uk-container uk-padding-remove-horizontal"
+                             v-if="!answers[questionIndex-1].no_answer[2]">
                             <p>Ausführungsplanung [%]:</p>
                             <div class="uk-column-1-2">
                                 <div>
@@ -285,13 +304,15 @@
                             </div>
                         </div>
                         <div class="uk-container cb-mt">
-                            <label><input class="uk-checkbox" type="checkbox" name="checkbox" value="Ohne Ausführungsplanung"
-                                          v-model="answers[questionIndex-1].no_answer[2]">
+                            <label><input class="uk-checkbox" type="checkbox" name="checkbox"
+                                          value="Ohne Ausführungsplanung"
+                                          v-model="answers[questionIndex-1].no_answer[2]" @click="noAnswer(questionIndex-1, 2)">
                                 Ohne Ausführungsplanung</label>
                         </div>
                     </div>
                     <div style="height: 140px;">
-                        <div class="uk-container uk-padding-remove-horizontal" v-if="!answers[questionIndex-1].no_answer[3]">
+                        <div class="uk-container uk-padding-remove-horizontal"
+                             v-if="!answers[questionIndex-1].no_answer[3]">
                             <p>Detailplanung [%]:</p>
                             <div class="uk-column-1-2">
                                 <div>
@@ -299,14 +320,15 @@
                                            v-model="answers[questionIndex-1].answer[3]">
                                 </div>
                                 <div>
-                                    <input class="uk-input" type="number" placeholder="Wert in %" min="0" v-model="answers[questionIndex-1].answer[3]"
+                                    <input class="uk-input" type="number" placeholder="Wert in %" min="0"
+                                           v-model="answers[questionIndex-1].answer[3]"
                                            max="100">
                                 </div>
                             </div>
                         </div>
                         <div class="uk-container cb-mt">
                             <label><input class="uk-checkbox" type="checkbox" name="checkbox" value="Ohne Detailplanung"
-                                          v-model="answers[questionIndex-1].no_answer[3]">
+                                          v-model="answers[questionIndex-1].no_answer[3]" @click="noAnswer(questionIndex-1, 3)">
                                 Ohne Detailplanung</label>
                         </div>
                     </div>
@@ -328,7 +350,8 @@
                            v-model="answers[questionIndex-1].answer">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" placeholder="Wert in %" style="width:120px" v-model="answers[questionIndex-1].answer">
+                    <input class="uk-input" type="number" placeholder="Wert in %" style="width:120px"
+                           v-model="answers[questionIndex-1].answer">
                 </div>
             </div>
         </div>
@@ -344,21 +367,24 @@
                               v-model="answers[questionIndex-1].answer">
                     Europaweite Vergabe öffentlicher Aufträge <br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Kommunale Auftragsvergabe" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Kommunale Auftragsvergabe"
+                              v-model="answers[questionIndex-1].answer">
                     Kommunale Auftragsvergabe<br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Rahmenverträge" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Rahmenverträge"
+                              v-model="answers[questionIndex-1].answer">
                     Rahmenverträge<br></label>
 
                 <label><input class="uk-checkbox" type="checkbox" value="Mangelhafte Leistungsbeschreibungen"
                               v-model="answers[questionIndex-1].answer">
                     Mangelhafte Leistungsbeschreibungen<br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Sonstiges" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Sonstiges"
+                              v-model="answers[questionIndex-1].answer" @click="toogleOtherText()">
                     Sonstiges<br></label>
 
                 <div>
-                    <textarea class="uk-textarea" rows="4" v-model="answers[questionIndex-1].other"></textarea>
+                    <textarea :disabled="otherTextStatus == false" class="uk-textarea" rows="4" v-model="answers[questionIndex-1].other"></textarea>
                 </div>
 
             </div>
@@ -368,7 +394,8 @@
         <!-- Frage 9 -->
         <div class="uk-container" v-if="questionIndex == 9">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                9. Festgestellte Ausführungsschäden, Anzahl insgesamt <span uk-icon="info" uk-tooltip="Hier bleibt es Ihnen überlassen für welche Auswahl Sie sich entscheiden. Sie können auch beide Optionen ausfüllen"></span>
+                9. Festgestellte Ausführungsschäden, Anzahl insgesamt <span uk-icon="info"
+                                                                            uk-tooltip="Hier bleibt es Ihnen überlassen für welche Auswahl Sie sich entscheiden. Sie können auch beide Optionen ausfüllen"></span>
             </div>
             <hr>
             <div class="uk-clearfix">
@@ -380,7 +407,8 @@
                     </div>
 
                     <div class="uk-margin-top" v-if="answers[questionIndex-1].type == '2013-2017'">
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer">
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer">
                     </div>
                 </div>
 
@@ -392,15 +420,20 @@
                     </div>
                     <div v-if="answers[questionIndex-1].type == 'everyYear'">
                         <span>2013 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[0]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[0]"><br>
                         <span>2014 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[1]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[1]"><br>
                         <span>2015 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[2]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[2]"><br>
                         <span>2016 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[3]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[3]"><br>
                         <span>2017 : </span>
-                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[4]"><br>
+                        <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                               v-model="answers[questionIndex-1].answer[4]"><br>
                     </div>
                 </div>
             </div>
@@ -409,7 +442,8 @@
         <!-- Frage 10 -->
         <div class="uk-container" v-if="questionIndex == 10">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                10. Besonders schadenanfällige Bauteile / Schadenstellen <span uk-icon="info" uk-tooltip="Alle Werte müssen zusammen 100% ergeben."></span>
+                10. Besonders schadenanfällige Bauteile / Schadenstellen <span uk-icon="info"
+                                                                               uk-tooltip="Alle Werte müssen zusammen 100% ergeben."></span>
             </div>
             <hr>
 
@@ -418,22 +452,27 @@
                     <p>Baustelle <span uk-icon="info" uk-tooltip="Baustelleneinrichtung, Sicherheit"></span></p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[0]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[0]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[0]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[0]">
                         </div>
                     </div>
                 </div>
                 <div class="uk-container">
-                    <p>Erdberührte Bauteile <span uk-icon="info" uk-tooltip="Bodenplatte, Keller, Tiefgarage, Fundament, Gebäudeabdichtung, Sockel"></span>
+                    <p>Erdberührte Bauteile <span uk-icon="info"
+                                                  uk-tooltip="Bodenplatte, Keller, Tiefgarage, Fundament, Gebäudeabdichtung, Sockel"></span>
                     </p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[1]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[1]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[1]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[1]">
                         </div>
                     </div>
                 </div>
@@ -443,14 +482,17 @@
 
             <div class="uk-column-1-2@l uk-column-divider">
                 <div class="uk-container">
-                    <p>Gebäudehülle <span uk-icon="info" uk-tooltip="Dach, Außenwände, Fenster, Türen, Wintergärten, Balkone"></span>
+                    <p>Gebäudehülle <span uk-icon="info"
+                                          uk-tooltip="Dach, Außenwände, Fenster, Türen, Wintergärten, Balkone"></span>
                     </p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[2]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[2]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[2]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[2]">
                         </div>
                     </div>
                 </div>
@@ -460,10 +502,12 @@
                     </p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[3]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[3]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[3]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[3]">
                         </div>
                     </div>
                 </div>
@@ -477,10 +521,12 @@
                     </p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[4]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[4]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[4]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[4]">
                         </div>
                     </div>
                 </div>
@@ -488,10 +534,12 @@
                     <p>Brandschutz</p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[5]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[5]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[5]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[5]">
                         </div>
                     </div>
                 </div>
@@ -504,10 +552,12 @@
                     <p>Luftdichte Ebene</p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[6]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[6]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[6]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[6]">
                         </div>
                     </div>
                 </div>
@@ -515,10 +565,12 @@
                     <p>Außenanlagen, Terrassen</p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[7]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[7]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[7]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[7]">
                         </div>
                     </div>
                 </div>
@@ -533,10 +585,12 @@
                     </p>
                     <div class="uk-column-1-2">
                         <div>
-                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[8]">
+                            <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                                   v-model="answers[questionIndex-1].answer[8]">
                         </div>
                         <div>
-                            <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[8]">
+                            <input class="uk-input" type="number" placeholder="Wert in %"
+                                   v-model="answers[questionIndex-1].answer[8]">
                         </div>
                     </div>
                 </div>
@@ -554,15 +608,17 @@
             </div>
             <hr>
             <div>
-                <label><input class="uk-checkbox" type="checkbox" value="Planung" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Planung"
+                              v-model="answers[questionIndex-1].answer">
                     Planung<br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Ausführung / Montage" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Ausführung / Montage"
+                              v-model="answers[questionIndex-1].answer">
                     Ausführung / Montage<br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Produkt / Material" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Produkt / Material"
+                              v-model="answers[questionIndex-1].answer">
                     Produkt / Material<br></label>
-
                 <label><input class="uk-checkbox" type="checkbox" value="Sonstiges" v-model="answers[questionIndex-1].answer">
                     Sonstiges<br></label>
             </div>
@@ -583,7 +639,8 @@
                            v-model="answers[questionIndex-1].answer">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" placeholder="Wert in %" style="width:120px" v-model="answers[questionIndex-1].answer">
+                    <input class="uk-input" type="number" placeholder="Wert in %" style="width:120px"
+                           v-model="answers[questionIndex-1].answer">
                 </div>
             </div>
 
@@ -597,21 +654,25 @@
             </div>
             <hr>
             <div>
-                <label><input class="uk-checkbox" type="checkbox" value="Verweigerung der Abnahme" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Verweigerung der Abnahme"
+                              v-model="answers[questionIndex-1].answer">
                     Verweigerung der Abnahme <br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Vertragsinhalte" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Vertragsinhalte"
+                              v-model="answers[questionIndex-1].answer">
                     Vertragsinhalte<br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Qualitäten / Toleranzen" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Qualitäten / Toleranzen"
+                              v-model="answers[questionIndex-1].answer">
                     Qualitäten / Toleranzen <br></label>
 
-                <label><input class="uk-checkbox" type="checkbox" value="Schnittstellen / Gewerke" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Schnittstellen / Gewerke"
+                              v-model="answers[questionIndex-1].answer">
                     Schnittstellen / Gewerke <br></label>
-
-                <label><input class="uk-checkbox" type="checkbox" value="Sonstiges" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-checkbox" type="checkbox" value="Sonstiges"
+                              v-model="answers[questionIndex-1].answer"  @click="toogleOtherText()">
                     Sonstiges<br></label>
-                <textarea class="uk-textarea" rows="4" v-model="answers[questionIndex-1].other"></textarea>
+                <textarea :disabled="otherTextStatus == false"  class="uk-textarea" rows="4" v-model="answers[questionIndex-1].other"></textarea>
             </div>
 
         </div>
@@ -619,7 +680,8 @@
         <!-- Frage 14 -->
         <div class="uk-container" v-if="questionIndex == 14">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                14. Festgestellte Schäden <span uk-icon="info" uk-tooltip="Alle Werte müssen zusammen 100% ergeben."></span>
+                14. Festgestellte Schäden <span uk-icon="info"
+                                                uk-tooltip="Alle Werte müssen zusammen 100% ergeben."></span>
             </div>
             <hr>
             <br>
@@ -630,28 +692,33 @@
                            v-model="answers[questionIndex-1].answer[0]">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" placeholder="Wert in %" style="width:120px" v-model="answers[questionIndex-1].answer[0]">
+                    <input class="uk-input" type="number" placeholder="Wert in %" style="width:120px"
+                           v-model="answers[questionIndex-1].answer[0]">
                 </div>
             </div>
             <div class="uk-container">
                 <p>nach 3 - 5 Jahren bei [%] aller Bauvorhaben / Projekte</p>
                 <div class="uk-align-left">
-                    <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[1]"
+                    <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                           v-model="answers[questionIndex-1].answer[1]"
                            style="width:250px">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[1]"
+                    <input class="uk-input" type="number" placeholder="Wert in %"
+                           v-model="answers[questionIndex-1].answer[1]"
                            style="width:120px">
                 </div>
             </div>
             <div class="uk-container">
                 <p>nach über 5 Jahren bei [%] aller Bauvorhaben / Projekte</p>
                 <div class="uk-align-left">
-                    <input class="uk-range" type="range" value="0" min="0" max="100" step="1" v-model="answers[questionIndex-1].answer[2]"
+                    <input class="uk-range" type="range" value="0" min="0" max="100" step="1"
+                           v-model="answers[questionIndex-1].answer[2]"
                            style="width:250px">
                 </div>
                 <div class="uk-align-left">
-                    <input class="uk-input" type="number" placeholder="Wert in %" v-model="answers[questionIndex-1].answer[2]"
+                    <input class="uk-input" type="number" placeholder="Wert in %"
+                           v-model="answers[questionIndex-1].answer[2]"
                            style="width:120px">
                 </div>
             </div>
@@ -660,7 +727,8 @@
         <!-- Frage 15 -->
         <div class="uk-container" v-if="questionIndex == 15">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                15. Schäden an eigener Leistung [Euro] <span uk-icon="info" uk-tooltip="Die durchschnittlichen Kosten müssen Sie auf jeden Fall ausfüllen. Jedes Jahr einzeln ist optional."></span>
+                15. Schäden an eigener Leistung [Euro] <span uk-icon="info"
+                                                             uk-tooltip="Die durchschnittlichen Kosten müssen Sie auf jeden Fall ausfüllen. Jedes Jahr einzeln ist optional."></span>
             </div>
             <hr>
 
@@ -668,7 +736,8 @@
                 <span>durchschnittliche Schadenbeseitigungskosten pro Jahr (2013 - 2017): </span>
             </div>
             <div class="uk-margin-top">
-                <input class="uk-input" type="number" placeholder="Euro" style="width:120px;" v-model="answers[questionIndex-1].answer[0]">
+                <input class="uk-input" type="number" placeholder="Euro" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[0]">
             </div>
 
             <div class="uk-margin-top" v-if="answers[questionIndex-1].answer[0]">
@@ -676,15 +745,20 @@
                     <span>Wollen Sie auch jedes Jahr einzeln eingeben?</span>
                 </div>
                 <span>2013 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[1]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[1]"><br>
                 <span>2014 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[2]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[2]"><br>
                 <span>2015 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[3]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[3]"><br>
                 <span>2016 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[4]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[4]"><br>
                 <span>2017 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[5]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[5]"><br>
             </div>
 
 
@@ -702,7 +776,8 @@
                 <span>durchschnittliche Mangel- / Schadenbeseitigungskosten pro Jahr (2013 - 2017): </span>
             </div>
             <div class="uk-margin-top">
-                <input class="uk-input" type="number" placeholder="Euro" style="width:120px;" v-model="answers[questionIndex-1].answer[0]">
+                <input class="uk-input" type="number" placeholder="Euro" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[0]">
             </div>
 
             <div class="uk-margin-top" v-if="answers[questionIndex-1].answer[0]">
@@ -710,15 +785,20 @@
                     <span>Wollen Sie auch jedes Jahr einzeln eingeben?</span>
                 </div>
                 <span>2013 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[1]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[1]"><br>
                 <span>2014 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[2]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[2]"><br>
                 <span>2015 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[3]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[3]"><br>
                 <span>2016 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[4]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[4]"><br>
                 <span>2017 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[5]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[5]"><br>
             </div>
         </div>
 
@@ -733,7 +813,8 @@
                 <span>2013 - 2017: </span>
             </div>
             <div class="uk-margin-top">
-                <input class="uk-input" type="number" placeholder="Euro" style="width:120px;" v-model="answers[questionIndex-1].answer">
+                <input class="uk-input" type="number" placeholder="Euro" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer">
             </div>
 
         </div>
@@ -741,7 +822,8 @@
         <!-- Frage 18 -->
         <div class="uk-container" v-if="questionIndex == 18">
             <div class="uk-padding uk-padding-remove-left uk-padding-remove-bottom">
-                18. Festgestellte Bauschadenkosten [Euro] <span uk-icon="info" uk-tooltip="Die durchschnittlichen Kosten müssen Sie auf jeden Fall ausfüllen. Jedes Jahr einzeln ist optional."></span>
+                18. Festgestellte Bauschadenkosten [Euro] <span uk-icon="info"
+                                                                uk-tooltip="Die durchschnittlichen Kosten müssen Sie auf jeden Fall ausfüllen. Jedes Jahr einzeln ist optional."></span>
             </div>
             <hr>
 
@@ -749,7 +831,8 @@
                 <span>durchschnittliche Bauschadenkosten pro Jahr (2013 - 2017): </span>
             </div>
             <div class="uk-margin-top">
-                <label><input class="uk-input" type="number" placeholder="Euro" style="width:120px;" v-model="answers[questionIndex-1].answer[0]">
+                <label><input class="uk-input" type="number" placeholder="Euro" style="width:120px;"
+                              v-model="answers[questionIndex-1].answer[0]">
             </div>
 
 
@@ -758,15 +841,20 @@
                     <span>Wollen Sie auch jedes Jahr einzeln eingeben?</span>
                 </div>
                 <span>2013 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[1]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[1]"><br>
                 <span>2014 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[2]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[2]"><br>
                 <span>2015 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[3]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[3]"><br>
                 <span>2016 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[4]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[4]"><br>
                 <span>2017 : </span>
-                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;" v-model="answers[questionIndex-1].answer[5]"><br>
+                <input class="uk-input" type="number" placeholder="Anzahl" style="width:120px;"
+                       v-model="answers[questionIndex-1].answer[5]"><br>
             </div>
         </div>
 
@@ -778,15 +866,20 @@
             </div>
             <hr>
             <div>
-                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verschlechtert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verschlechtert"
+                              v-model="answers[questionIndex-1].answer">
                     Deutlich verschlechtert<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Verschlechtert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Verschlechtert"
+                              v-model="answers[questionIndex-1].answer">
                     Verschlechtert<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Gleich geblieben" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Gleich geblieben"
+                              v-model="answers[questionIndex-1].answer">
                     Gleich geblieben<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Verbessert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Verbessert"
+                              v-model="answers[questionIndex-1].answer">
                     Verbessert<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verbessert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verbessert"
+                              v-model="answers[questionIndex-1].answer">
                     Deutlich verbessert</label>
 
             </div>
@@ -801,15 +894,20 @@
             </div>
             <hr>
             <div>
-                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verschlechtert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verschlechtert"
+                              v-model="answers[questionIndex-1].answer">
                     Deutlich verschlechtert<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Verschlechtert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Verschlechtert"
+                              v-model="answers[questionIndex-1].answer">
                     Verschlechtert<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Gleich geblieben" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Gleich geblieben"
+                              v-model="answers[questionIndex-1].answer">
                     Gleich geblieben<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Verbessert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Verbessert"
+                              v-model="answers[questionIndex-1].answer">
                     Verbessert<br></label>
-                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verbessert" v-model="answers[questionIndex-1].answer">
+                <label><input class="uk-radio" type="radio" name="radio" value="Deutlich verbessert"
+                              v-model="answers[questionIndex-1].answer">
                     Deutlich verbessert</label>
 
             </div>
