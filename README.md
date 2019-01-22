@@ -57,8 +57,8 @@
 
 #### 6. Seite Starten
 
- 1 Backend starten
- 1.1 Öffnen Sie einen Browser
- 1.2 Geben Sie die Adresse http://localhost:8080/umfrageIFB/saveAllQuestions ein um die Fragen in der Datenbank zu speichern.
- 1.3 Geben Sie die Adresse http://localhost:8080/umfrageIFB/index.hmtl ein und folgen Sie den Anweisungen auf der Startseite.
+1 Backend starten
+1.1 Öffnen Sie einen Browser
+1.2 Geben Sie die Adresse http://localhost:8080/umfrageIFB/saveAllQuestions ein um die Fragen in der Datenbank zu speichern.
+1.3 Geben Sie die Adresse http://localhost:8080/umfrageIFB/index.hmtl ein und folgen Sie den Anweisungen auf der Startseite.
 
