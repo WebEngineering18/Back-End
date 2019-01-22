@@ -90,7 +90,7 @@ window.onload = function () {
                     } else {
                         this.questionIndex++;
                     }
-                    console.log(response.data);
+                    console.log(response);
                 } catch (error) {
                     console.error(error);
                 }

@@ -67,7 +67,7 @@ public class UmfrageController {
             
             state = true;
 
-            User user = new User(request.getRemoteAddr(), request.getRequestedSessionId());
+            User user = new User(request.getRequestedSessionId());
             userRepository.save(user);
             JSONArray wholeArray = new JSONArray(answer);
 

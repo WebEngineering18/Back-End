@@ -19,9 +19,6 @@ public class User extends Created_At {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UserSequence")
     @Column(name = "user_id")
     private int id;
-
-    @Column(name = "ip")
-    private String ip;
     
     @Column(name = "sessionId")
     private String sessionId;
@@ -30,9 +27,8 @@ public class User extends Created_At {
         super();
     }
 
-    public User(String ip, String sessionId) {
+    public User(String sessionId) {
         super();
-        this.ip = ip;
         this.sessionId = sessionId;
     }
 
@@ -44,13 +40,6 @@ public class User extends Created_At {
         this.id = id;
     }
 
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
     
     public String getSessionId() {
         return sessionId;
@@ -62,7 +51,7 @@ public class User extends Created_At {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", ip=" + ip + ", sessionId=" + sessionId + ", time=" + getCreatedAt() + "]";
+        return "User [id=" + id + ", sessionId=" + sessionId + ", time=" + getCreatedAt() + "]";
     }
 
 
