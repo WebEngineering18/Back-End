@@ -50,3 +50,22 @@ textarea.textarea {
 .cb-mt{
     margin-top: 15px;
 }
+
+#fragebogen{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+#content{
+    margin-bottom: 20px;
+}
+#footer{
+    margin-top: auto;
+}
+.help-text{
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    text-align: right;
+}
