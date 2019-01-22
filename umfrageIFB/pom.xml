@@ -13,7 +13,7 @@
     <version>1.0</version>
     <packaging>war</packaging>
     <name>umfrageIFB</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Projekt für die Umfrage des Instituts für Bauforschung</description>
 
     <properties>
         <java.version>1.8</java.version>
