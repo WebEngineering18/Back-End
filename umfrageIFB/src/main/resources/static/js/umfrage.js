@@ -173,6 +173,15 @@ window.onload = function () {
                     } else {
                         this.error = false;
                     }
+                } 
+                if (this.answers[this.questionIndex - 1].question_id == 12) {
+                    let number = parseInt(this.answers[this.questionIndex - 1].answer);
+                    if (number > 100) {
+                        this.errorMessage = "Der Wert darf nicht größer als 100 sein.";
+                        this.error = true;
+                    } else {
+                        this.error = false;
+                    }
                 }
 
                 //data format improvments for database
