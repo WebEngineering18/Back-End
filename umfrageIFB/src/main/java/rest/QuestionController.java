@@ -35,7 +35,6 @@ public class QuestionController {
 	@CrossOrigin(origins = "http://localhost:8080")
 	@RequestMapping("/saveAllQuestions")
 	public String saveQuestion() {
-		questionRepository.deleteAll();
 		questionRepository.saveAll(Arrays.asList(new Question("Fachbereich Ihres Unternehmens"),new Question("Tätig als"),
 				new Question("Gesamtanzahl Bauvorhaben / Projekte in den letzten 5 Jahren"),new Question("Bauvorhaben / Projekte"),
 				new Question("Festgestellte Planungsschäden, Anzahl insgesamt"),new Question("Festgestellte Schäden im Einzelnen"),
